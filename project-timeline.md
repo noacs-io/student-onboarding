@@ -1,30 +1,44 @@
 # Project 20 weeks
 
-Most projects that I supervise run for 20 weeks, which is equivalent to one semester in Swedish universities. I recommend that you put in a
-lot of work during the first 10 weeks, and even more so during the initial four weeks, to make sure that you meet project deadlines and
-achieve the desired learning outcomes. The timeline here is a suggestion that I've found to work well for most projects.
+Most projects that we supervise run for 20 weeks, which is equivalent
+to one semester in Swedish universities. We recommend that you put in
+a lot of work during the first 10 weeks, and even more so during the
+initial four weeks, to make sure that you meet project deadlines and
+achieve the desired learning outcomes. The timeline here is a
+suggestion that we've found to work well for most projects.
 
 ## Week 1
 
-- Join the team on [Discord](https://discord.gg/CFEY2RUUDX) and say hello.
-- Read up.
-- Draft a [project plan](project-plan.md) [sv: projektredogörelse] based on the appropriate study reporting guideline, for example
-  [STROBE](https://www.equator-network.org/reporting-guidelines/strobe/) or
-  [TRIPOD](https://www.equator-network.org/reporting-guidelines/tripod-statement/), and upload to your project repository.
-
-### Setup your coding environment
-
-- Create a [GitHub](https://github.com/) account and login.
-  - Navigate to [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new)
-  - Create a token with "Expiration: No expiration" and select the "repo" scope.
-  - Copy the token from the blue box and store it how you store passwords. This will be used to fetch & save your code to Github and is a
-    sensitive piece of information.
-- Install R and RStudio on your computer (or use our Rstudio instance: [https://rstudio.test.noacs.io](https://rstudio.test.noacs.io))
-  - Try [Swirl](https://swirlstats.com/students.html).
-- Fork this repository to your own GitHub account.
-  - Copy the link to the repository in your account, should be something like https://github.com/username/repo
-  - Create a new project in Rstudio, select "From version control", enter the URL and follow the instructions. When it asks for your
+- Join the team on [Discord](https://discord.gg/CFEY2RUUDX) and say
+  hello. This is where you will receive your server login details.
+- Setup your coding environment
+  - Create a [GitHub](https://github.com/) account and login
+  - Fork your project repo from noacs to your own account by
+    navigating to your project on noacs and clicking Fork in the upper
+    right corner
+  - Navigate to
+    [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new)
+  - Create a token with "Expiration: No expiration" and select the
+    "repo" scope.
+  - Copy the token from the blue box and store it how you store
+    passwords. This will be used to fetch & save your code to Github
+    and is a sensitive piece of information.
+  - Navigate to our Rstudio instance and login:
+    [https://rstudio.test.noacs.io](https://rstudio.test.noacs.io)
+  - Copy the link to the repository in your account, should be
+    something like https://github.com/username/repo
+  - Create a new project in Rstudio, select "From version control",
+    enter the URL and follow the instructions. When it asks for your
     password use the token generated before.
+- Try [Swirl](https://swirlstats.com/students.html), start from Step
+  3.
+- Read up.
+- Draft a [project plan](project-plan.md) [sv: projektredogörelse]
+  based on the appropriate study reporting guideline, for example
+  [STROBE](https://www.equator-network.org/reporting-guidelines/strobe/)
+  or
+  [TRIPOD](https://www.equator-network.org/reporting-guidelines/tripod-statement/),
+  and upload to your project repository.
 
 ## Week 2
 
