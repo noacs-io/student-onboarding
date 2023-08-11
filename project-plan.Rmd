@@ -1,0 +1,79 @@
+---
+title: "Manuscript title here"
+subtitle: "Add a Subtitle if Needed"
+author: "Your name here"
+bibliography: bibliography.bib
+csl: vancouver.csl
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "out") })
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<!-- The project plan should be 3-4 pages long and written in
+Rmarkdown (like this document). Remove all comments in italic when you 
+use this document as a template for your own project plan. -->
+
+<!-- This is an R Markdown document. Markdown is a simple formatting
+syntax for authoring HTML, PDF, and MS Word documents. For more
+details on using R Markdown see http://rmarkdown.rstudio.com -->
+
+<!-- This is a comment and will not be present in the compiled
+document. Try "knitting" this document by clicking the knit button up
+to the left, or by running `rmarkdown::render("manuscript.Rmd")` in
+the console and you should only see headings -->
+
+
+Introduction
+============
+
+*This is part A) in the project plan [sv: projektredogörelse]. *
+
+
+*The background/introduction should summarise the scope of the problem,
+what is known about the problem, what is not known, what specific
+knowledge gap the study is supposed to fill and why this is
+important. It should end be stating the aim of the study. The
+background should be 4-5 paragraphs long and each paragraph should be
+between 3-5 sentences. Strive to make the paragraphs about the same
+length.*
+
+*bibliography.bib includes an example reference. Add additional
+references in that file as bibtex entries and then cite in text using:
+"[@exampleKey9999]". One can convert DOIs' to bibtex entries using 
+https://www.doi2bib.org/. If you use Zotero you can simply export 
+entries to bibtex `Ctrl-Shift-C`, however you need to first setup 
+Quick Copy to export to bibtex (https://www.zotero.org/support/creating_bibliographies#quick_copy)*
+
+Methods
+=======
+
+*Refer to the appropriate reporting guideline for details. If you are
+developing, updating or validating a clinical prediction model then
+use
+[TRIPOD](https://www.equator-network.org/reporting-guidelines/tripod-statement/). If
+you are conducting an observational study, for example a cohort or
+case control study in which you assess associations between some
+exposure and an outcome then use
+[STROBE](https://www.equator-network.org/reporting-guidelines/strobe/).*
+
+Project Update and Timeline
+===========================
+
+*This is part B) in the project plan [sv: projektredogörelse]. *
+
+*Save the image generated from the Gantt chard spreadsheet into the assets folder, rename it to project-gantt.png*
+
+![**The Gantt chart will be displayed here when you place it in the assets folder under "project-gantt.png"**](assets/project-gantt.png)
+
+Back-up Plan
+============
+
+*This is part C) in the project plan [sv: projektredogörelse]*
+
+References
+==========
+
+<!-- Do not edit by hand, references will be inserted and formatted automatically once you knit this document -->

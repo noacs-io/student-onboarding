@@ -1,0 +1,194 @@
+---
+title: "Lab-book"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: html_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "out") })
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(lubridate)
+library(summarytools)
+library(survival)
+library(survminer)
+```
+
+# About
+This is your personal lab book and you may use it and structure it as you please. One way to structure it is to create a new section for each day, or maybe for each new function, or maybe both. It is up to you. Below is a fictitious example (that uses both), remove it when you have decided on a structure, you can find this code again in the `student-repo-template` repository on Github.
+
+# Functions
+
+## Load Data
+
+Luckily our data is stored in a simple csv. If we are less lucky we might have to connect to SQL databases or work with weird formats. That can be done here.
+
+```{r data, include=FALSE}
+data <- read.csv("path_to_data.csv")
+```
+
+## Explore Data
+
+Here we do some simple data exploration. This shows that... we will need to think about this when doing the analysis.
+
+**TODO**:
+- Use more complex methods for data exploration. Plot histograms for numeric features and bar plots for categorical? 
+
+```{r explore, include=FALSE}
+head(registry_data)
+str(data)
+summary(data)
+stby(registry_data, by = NULL)
+```
+
+## Clean data
+
+A few cases are missing data on `treatment_type` and `outcome_status`, we will remove these.
+
+**TODO**:
+- Exclude patients under the age of 18. I think dplyr can be used for that.
+
+```{r explore, include=FALSE}
+# Remove missing data
+data_cleaned <- data %>%
+  filter(!is.na(treatment_type) & !is.na(outcome_status))
+
+print(paste("Number of rows removed during cleaning:", nrow(data) - nrow(data_cleaned)))
+```
+
+## Descriptive Statistics
+
+Describe the distribution of patients among different treatment types.
+
+```{r descriptive_stats, include=FALSE}
+table(data_cleaned$treatment_type)
+```
+
+## Survival Analysis
+
+```{r analysis, include=FALSE}
+# Create a survival object
+surv_obj <- Surv(data_cleaned$time_to_event, data_cleaned$event_occurred)
+
+# Fit a survival curve based on treatment type
+surv_fit <- survfit(surv_obj ~ treatment_type, data=data_cleaned)
+
+# Plot the survival curve
+ggsurvplot(surv_fit, data=data_cleaned,
+           legend.title="Treatment Type",
+           xlab="Days",
+           ylab="Survival Probability",
+           title="Survival Analysis by Treatment Type")
+```
+
+## Statistical Testing
+
+We will use a log-rank test to compare survival curves for different treatment_types. We do this because of...
+
+We will use a Cox Proportional Hazards regression model to understand how treatment type affects time to event while controlling for age and gender. The hazard ratios for each factor, especially treatment_type, are calculated to understand its impact on the survival time.
+
+```{r analytical_stats, include=FALSE}
+log_rank_test <- survdiff(surv_obj ~ treatment_type, data=data_cleaned)
+print(log_rank_test)
+
+cox_model <- coxph(formula = surv_obj ~ treatment_type + age + gender, data=data_cleaned)
+summary(cox_model)
+```
+
+## Results and Visualisations
+
+**TODO**:
+- Create a Table one
+- Create a table for hazard ratios
+- Investigate if we can create a cool flowchart for inclusion/exclusion criteria
+
+```{r results, include=FALSE}
+data_cleaned %>%
+  group_by(treatment_type) %>%
+  tally() %>%
+  ggplot(aes(x=treatment_type, y=n)) +
+  geom_bar(stat="identity", fill="steelblue") +
+  labs(title="Number of Patients by Treatment Type",
+       x="Treatment Type",
+       y="Number of Patients")
+
+```
+
+# Progress Report/Journal
+
+## 10/8
+Today i explored the possibility of using more advanced data visualisation techniques. The code below allows me to view numerical features using histograms and categorical using bar plots.
+
+**TODO**:
+- I should investigated if I can calculate hazard ratios for `treatment_type`, `age`, and `gender`.
+
+```{r 10-8, include=FALSE}
+# Exploring individual variables using histograms for numeric columns
+numeric_columns <- sapply(registry_data, is.numeric)
+for (col in names(registry_data)[numeric_columns]) {
+  print(
+    ggplot(registry_data, aes_string(col)) +
+      geom_histogram(bins = 30, fill = "blue", alpha = 0.7) +
+      theme_minimal() +
+      labs(title = paste("Histogram of", col))
+  )
+}
+
+# For categorical columns, using bar plots
+factor_columns <- sapply(registry_data, is.factor)
+for (col in names(registry_data)[factor_columns]) {
+  print(
+    ggplot(registry_data, aes_string(col)) +
+      geom_bar(fill = "green", alpha = 0.7) +
+      theme_minimal() +
+      labs(title = paste("Bar plot of", col))
+  )
+}
+```
+
+
+## 14/8
+Today I worked with calculating hazard ratios for `treatment_type`, `age`, and `gender`. After some research I figured out I need to use a Cox Proportional Hazards regression model to do this. I have a copied some code from the documentations below, it works with the current data.
+
+**TODO**:
+- Analyse the hazard ratios.
+
+```{r 14-8, include=FALSE}
+# Create a survival object
+surv_obj <- Surv(data_cleaned$time_to_event, data_cleaned$event_occurred)
+
+# Fit cox model to data
+cox_model <- coxph(formula = surv_obj ~ treatment_type + age + gender, data=data_cleaned)
+
+# Print summary of the regression model
+summary(cox_model)
+```
+
+## 15/8
+
+Today, I analysed the hazard ratios from the Cox Proportional Hazards regression model for `treatment_type`, `age`, and `gender`.
+
+Findings:
+
+- **Treatment Type**: HR of 1.5 (95% CI: [1.3, 1.7]). The new treatment increases the event risk by 50% compared to standard treatment.
+
+- **Age**: HR of 1.02 (95% CI: [1.01, 1.03]). Each additional year of age increases the hazard rate by 2%.
+
+- **Gender**: HR of 0.9 (95% CI: [0.8, 1.0]). Females have a 10% reduced hazard compared to males, but this result is borderline significant.
+
+**TODO**:
+- Visualize the hazard ratios using forest plots.
+- Investigate predictor interactions.
+
+```{r 15-8, include=FALSE}
+# Extracting Hazard Ratios and their CI
+hr_results <- tidy(cox_model, conf.int = TRUE, exponentiate = TRUE)
+
+# Create a forest plot
+ggforest(hr_results, data = data_cleaned)
+```
+
