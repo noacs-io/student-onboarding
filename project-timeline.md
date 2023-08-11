@@ -11,6 +11,8 @@ suggestion that we've found to work well for most projects.
 
 - Join the team on [Discord](https://discord.gg/CFEY2RUUDX) and say
   hello. This is where you will receive your server login details.
+- Create a PDF of the [expectations](./expectations.md), digitally
+  sign it, and ask your supervisors to do the same.
 - Setup your coding environment
   - Create a [GitHub](https://github.com/) account and login
   - Fork your project repo from noacs to your own account by
