@@ -12,6 +12,8 @@ To get the most out of this repository start by reading the [project timeline](p
 
 ## Supervision structure
 
+You will have a at least two supervisors, one main and one co-supervisor, but sometimes more. Most of your day to day contacts and meetings will be with your co-supervisor, but you will also meet with your main supervisor, probably monthly. A majority of the supervision is online, but there is often possible to arrange in-person meetings. 
+
 ## Resources
 
 ### Git
