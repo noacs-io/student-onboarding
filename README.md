@@ -2,7 +2,7 @@
 
 ## We are very happy that you are considering taking on a project with our lab!
 
-The No Accidents <!--([NOACS](https://noacs.io))--> lab researches how to predict and prevent morbidity and mortality in trauma patients, by developing and validating prediction models for early trauma care and evaluating system level interventions for improved trauma care. 
+The [No Accidents (NOACS)](https://ki.se/en/gph/research/research-groups-at-gph/health-systems-and-policy/no-accidents-improving-trauma-systems)<!--([NOACS](https://noacs.io))--> lab conducts research to strengthen the systems required to care for trauma patients, by preventing and predicting mortality and morbidity after trauma. 
 
 Our research is based primarily in Sweden and India and it is funded by the Swedish Research Council and the Laerdal Foundation.
 
@@ -12,7 +12,7 @@ To get the most out of this repository start by reading the [project timeline](p
 
 ## Supervision structure
 
-You will have a at least two supervisors, one main and one co-supervisor, but sometimes more. Most of your day to day contacts and meetings will be with your co-supervisor, but you will also meet with your main supervisor, probably monthly. A majority of the supervision is online, but there is often possible to arrange in-person meetings. 
+You will have a at least two supervisors, one main and one co-supervisor, but sometimes more. Most of your day to day contacts and meetings will be with your co-supervisor, but you will also meet with your main supervisor. A majority of the supervision is online, but there is often possible to arrange in-person meetings. We have weekly check-ins every Thursday at 10.00 CEST, in which you will meet at least one of the lab members, and monthly lab meetings.
 
 ## Resources
 
