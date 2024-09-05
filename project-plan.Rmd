@@ -22,7 +22,7 @@ details on using R Markdown see http://rmarkdown.rstudio.com -->
 
 <!-- This is a comment and will not be present in the compiled
 document. Try "knitting" this document by clicking the knit button up
-to the left, or by running `rmarkdown::render("manuscript.Rmd")` in
+to the left, or by running `rmarkdown::render("project-plan.Rmd")` in
 the console and you should only see headings -->
 
 
